@@ -1,0 +1,21 @@
+Bu Python programı, bir hedef makinedeki belirtilen bir port aralığında port taraması yapar. Program, argparse modülü kullanarak komut satırı argümanlarını ayrıştırır ve threading modülü kullanarak birden fazla thread ile tarama yapar. 
+
+Program, önce hedef makinenin IP adresini alır ve ardından belirtilen port aralığında tarama yapmak için bir TCP soketi oluşturur. Her bir porta bağlanma girişimi, belirtilen bir zaman aşımı süresi içinde gerçekleştirilir ve sonuç başarı veya başarısızlık olarak değerlendirilir. Başarılı bir bağlantı girişimi, açık bir porta işaret eder ve sonuçlar ekrana yazdırılır.
+
+Program, birden fazla thread kullanarak taramayı hızlandırır. Her thread, belirtilen port aralığının bir alt kümesindeki portları tarar. Bu alt kümeler, toplam tarama aralığına eşit parçalara bölünür ve her thread bir alt kümedeki portları tarar.
+
+Teknik terimler:
+- argparse: Python'da, komut satırı argümanlarını ayrıştırmak için kullanılan bir modül.
+- threading: Python'da, birden fazla iş parçacığı oluşturmak ve yönetmek için kullanılan bir modül.
+- socket: Bilgisayar ağları üzerinde veri iletişimi için kullanılan bir Python modülü.
+- IP adresi: Bilgisayar ağları üzerinde, bir cihazın benzersiz tanımlayıcısı olarak kullanılan sayısal adres.
+- TCP soketi: İki cihaz arasında güvenli ve güvenilir bir veri akışı sağlamak için kullanılan bir iletişim protokolü.
+- zaman aşımı: Belirli bir işlemin tamamlanması için ayrılan süre dolduğunda, işlem sonlandırılır ve hata mesajı gösterilir.
+
+Bu Python kodu, bir hedef makinedeki belirli bir port aralığını taramak için kullanılan basit bir port tarama aracıdır. Kod, argparse, socket, threading ve time kütüphanelerini kullanır.
+
+Kod, kullanıcıdan hedef makinenin IP adresi veya alan adı, tarama başlangıç ve bitiş portları, kullanılacak iş parçacığı sayısı ve her bağlantı denemesi için zaman aşımı gibi parametreleri alır.
+
+threaded_scan() fonksiyonu, belirtilen sayıda iş parçacığı kullanarak portları taramak için scan() fonksiyonunu çağırır. scan() fonksiyonu, belirtilen port aralığında bir TCP soketi oluşturur ve her bir port için bağlantı denemesi yapar. Eğer bağlantı başarılıysa, o portun açık olduğunu bildiren bir mesaj yazdırır.
+
+Sonuçlar, her bir iş parçacığı tarafından taranan portların listesi şeklinde ekrana yazdırılır. Son olarak, tarama süresi hesaplanır ve ekrana yazdırılır.
